@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comida Menu</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 2em;
+            background-color: #fcecec;
+            /* Light gray background */
+        }
+
+        h1,
+        h2 {
+            color: #d9534f;
+            /* A reddish color for headings */
+            text-align: center;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2em;
+        }
+
+        .hero-container {
+            position: relative; /* Establishes a positioning context for the overlay */
+            width: 100%;
+            height: 300px;
+            border-radius: 8px;
+            margin-bottom: 2em;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            overflow: hidden; /* Ensures the image and overlay stay within the rounded corners */
+        }
+
+        .hero-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black overlay */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        .slogan {
+            font-size: 2.5em;
+            font-weight: 400;
+            font-style: italic; 
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            color: burlywood;
+        }
+
+        .menu-section {
+            margin-bottom: 3em;
+            margin-top: 4rem;
+        }
+
+        .menu-section h2{
+            text-align: left;
+            margin-left: 1rem;
+        }
+
+        .menu-items-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2em;
+            justify-content: center;
+        }
+
+        .menu-item {
+            display: flex;
+            flex-direction: column;
+            /* Stack image and text vertically */
+            align-items: center;
+            /* Center items horizontally */
+            width: 200px;
+            /* Fixed width for each card */
+            background-color: #fff;
+            padding: 1em;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .menu-item img {
+            width: 100%;
+            /* Image takes full width of the card */
+            height: 150px;
+            /* Fixed height for images */
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1em;
+            /* Space between image and text */
+        }
+
+        .item-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .item-name {
+            font-weight: bold;
+        }
+
+        .footer {
+            margin-top: 3em;
+            text-align: center;
+            font-style: italic;
+        }
+
+        /* Responsive adjustments for smaller devices */
+         @media (max-width: 200px) {
+            body {
+                margin: 0.5em;
+            }
+
+            .menu-items-grid {
+                gap: 1em;
+            }
+
+             .menu-item {
+                width: 75%;
+             }
+        } 
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>COMIDA MENU</h1>
+    </div>
+
+  <!-- Hero Image -->
+    <div class="hero-container">
+        <img src="imgs/img2 (3).jpeg" alt="A delicious bowl of Nigerian Jollof Rice">
+        <div class="hero-overlay">
+            <h2 class="slogan">Taste the Tradition...</h2>
+        </div>
+    </div>
+
+    <div class="menu-section">
+        <h2>BREAKFAST</h2>
+        <div class="menu-items-grid">
+            <div class="menu-item">
+                <img src="imgs/img (4).jpg" alt="Oath">
+                <div class="item-details">
+                    <span class="item-name">Oath</span>
+                    <span>1000</span>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="imgs/img (3).jpg" alt="Custard">
+                <div class="item-details">
+                    <span class="item-name">Custard</span>
+                    <span>1000</span>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="imgs/img (1).jpg" alt="Bread/egg">
+                <div class="item-details">
+                    <span class="item-name">Bread/egg</span>
+                    <span>1,100</span>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="imgs/img (4).webp" alt="Okra">
+                <div class="item-details">
+                    <span class="item-name">Okra</span>
+                    <span>1000</span>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="imgs/img (1).webp" alt="Egusi">
+                <div class="item-details">
+                    <span class="item-name">Egusi</span>
+                    <span>1000</span>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="imgs/img (5).webp" alt="Vegetable">
+                <div class="item-details">
+                    <span class="item-name">Vegetable</span>
+                    <span>1200</span>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="imgs/img (2).jpg" alt="Atama">
+                <div class="item-details">
+                    <span class="item-name">Atama</span>
+                    <span>1200</span>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="imgs/img (2).webp" alt="Afang">
+                <div class="item-details">
+                    <span class="item-name">Afang</span>
+                    <span>1,200</span>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="imgs/img (3).webp" alt="Ogbono">
+                <div class="item-details">
+                    <span class="item-name">Ogbono</span>
+                    <span>1,500</span>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="imgs/img (1).jpeg" alt="Native">
+                <div class="item-details">
+                    <span class="item-name">Native</span>
+                    <span>1,500</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="menu-section">
+        <h2>PROTEIN</h2>
+        <div class="menu-items-grid">
+            <div class="menu-item">
+                <img src="https://via.placeholder.com/200x150" alt="Fish">
+                <div class="item-details">
+                    <span class="item-name">Fish</span>
+                    <span>1000</span>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="https://via.placeholder.com/200x150" alt="Pepper meat">
+                <div class="item-details">
+                    <span class="item-name">Pepper meat</span>
+                    <span>1000</span>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="https://via.placeholder.com/200x150" alt="Push meat">
+                <div class="item-details">
+                    <span class="item-name">Push meat</span>
+                    <span>2,500</span>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="https://via.placeholder.com/200x150" alt="Snail">
+                <div class="item-details">
+                    <span class="item-name">Snail</span>
+                    <span>3000</span>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="https://via.placeholder.com/200x150" alt="Goat meat">
+                <div class="item-details">
+                    <span class="item-name">Goat meat</span>
+                    <span>1000</span>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="https://via.placeholder.com/200x150" alt="Chicken">
+                <div class="item-details">
+                    <span class="item-name">Chicken</span>
+                    <span>1000</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="menu-section">
+        <h2>FOOD PREPARED BASE ON ORDER</h2>
+        <div class="menu-items-grid">
+            <div class="menu-item">
+                <img src="https://via.placeholder.com/200x150" alt="Coconut Rice">
+                <div class="item-details">
+                    <span class="item-name">Coconut Rice</span>
+                    <span>3000</span>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="https://via.placeholder.com/200x150" alt="Fried Rice">
+                <div class="item-details">
+                    <span class="item-name">Fried Rice</span>
+                    <span>3000</span>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="https://via.placeholder.com/200x150" alt="White Rice">
+                <div class="item-details">
+                    <span class="item-name">White Rice</span>
+                    <span>2000</span>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="https://via.placeholder.com/200x150" alt="Spaghetti">
+                <div class="item-details">
+                    <span class="item-name">Spaghetti</span>
+                    <span>3000</span>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="https://via.placeholder.com/200x150" alt="Chinese Rice">
+                <div class="item-details">
+                    <span class="item-name">Chinese Rice</span>
+                    <span>4000</span>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="https://via.placeholder.com/200x150" alt="Chips">
+                <div class="item-details">
+                    <span class="item-name">Chips</span>
+                    <span>2000</span>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="https://via.placeholder.com/200x150" alt="Plantain porridge">
+                <div class="item-details">
+                    <span class="item-name">Plantain porridge</span>
+                    <span>2000</span>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="https://via.placeholder.com/200x150" alt="Fried plantain/egg">
+                <div class="item-details">
+                    <span class="item-name">Fried plantain/egg</span>
+                    <span>2500</span>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="https://via.placeholder.com/200x150" alt="Porridge yam">
+                <div class="item-details">
+                    <span class="item-name">Porridge yam</span>
+                    <span>2000</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="menu-section">
+        <h2>SWALLOW</h2>
+        <div class="menu-items-grid">
+            <div class="menu-item">
+                <img src="https://via.placeholder.com/200x150" alt="Garri">
+                <div class="item-details">
+                    <span class="item-name">Garri</span>
+                    <span>300</span>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="https://via.placeholder.com/200x150" alt="Semo">
+                <div class="item-details">
+                    <span class="item-name">Semo</span>
+                    <span>700</span>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="https://via.placeholder.com/200x150" alt="Yam poundo">
+                <div class="item-details">
+                    <span class="item-name">Yam poundo</span>
+                    <span>1,500</span>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="https://via.placeholder.com/200x150" alt="Plantain poundo">
+                <div class="item-details">
+                    <span class="item-name">Plantain poundo</span>
+                    <span>1,500</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="menu-section">
+        <h2>SPECIAL SOUPS WITHOUT MAGGI</h2>
+        <div class="menu-items-grid">
+            <div class="menu-item">
+                <img src="https://via.placeholder.com/200x150" alt="Vegetable">
+                <div class="item-details">
+                    <span class="item-name">Vegetable</span>
+                    <span>3000</span>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="https://via.placeholder.com/200x150" alt="Banga">
+                <div class="item-details">
+                    <span class="item-name">Banga</span>
+                    <span>3000</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="menu-section">
+        <h2>SUNDAY SERVICE</h2>
+        <div class="menu-items-grid">
+            <div class="menu-item">
+                <img src="https://via.placeholder.com/200x150" alt="Smoke Jollof Rice">
+                <div class="item-details">
+                    <span class="item-name">Smoke Jollof Rice</span>
+                    <span>1000</span>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="https://via.placeholder.com/200x150" alt="Moi-moi">
+                <div class="item-details">
+                    <span class="item-name">Moi-moi</span>
+                    <span>500</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="menu-section">
+        <h2>BEER</h2>
+        <div class="menu-items-grid">
+            <div class="menu-item">
+                <img src="https://via.placeholder.com/200x150" alt="Life">
+                <div class="item-details">
+                    <span class="item-name">Life</span>
+                    <span>1400</span>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="https://via.placeholder.com/200x150" alt="Flying fish">
+                <div class="item-details">
+                    <span class="item-name">Flying fish</span>
+                    <span>1200</span>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="https://via.placeholder.com/200x150" alt="Desperado">
+                <div class="item-details">
+                    <span class="item-name">Desperado</span>
+                    <span>1700</span>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="https://via.placeholder.com/200x150" alt="Legend">
+                <div class="item-details">
+                    <span class="item-name">Legend</span>
+                    <span>2000</span>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="https://via.placeholder.com/200x150" alt="Heineken">
+                <div class="item-details">
+                    <span class="item-name">Heineken</span>
+                    <span>2000</span>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="https://via.placeholder.com/200x150" alt="Hero">
+                <div class="item-details">
+                    <span class="item-name">Hero</span>
+                    <span>1400</span>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="https://via.placeholder.com/200x150" alt="Table water">
+                <div class="item-details">
+                    <span class="item-name">Table water</span>
+                    <span>300</span>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="https://via.placeholder.com/200x150" alt="Coke">
+                <div class="item-details">
+                    <span class="item-name">Coke</span>
+                    <span>500</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="menu-section">
+        <h2>WINE</h2>
+        <div class="menu-items-grid">
+            <div class="menu-item">
+                <img src="https://via.placeholder.com/200x150" alt="4th Street">
+                <div class="item-details">
+                    <span class="item-name">4th Street</span>
+                    <span>6000</span>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="https://via.placeholder.com/200x150" alt="Marco Rosso">
+                <div class="item-details">
+                    <span class="item-name">Marco Rosso</span>
+                    <span>5,500</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>No. 2B Mini-Ezekwu Street</p>
+        <p>&copy; <span id="year"></span> Comida. All rights reserved.</p>
+    </div>
+
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
