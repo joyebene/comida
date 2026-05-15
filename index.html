@@ -2,513 +2,351 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Penlinekitchen Menu</title>
+
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            overflow-x: hidden;
+        }
+
+        :root {
+            --primary-color: #d9534f;
+            --background-color: #fcecec;
+            --card-bg: #ffffff;
+            --text-color: #333;
+            --shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            --radius: 12px;
+        }
+
         body {
             font-family: sans-serif;
-            margin: 2em;
-            background-color: #fcecec;
-            /* Light gray background */
+            background-color: var(--background-color);
+            color: var(--text-color);
+            padding: 2rem;
+        }
+
+        img {
+            display: block;
+            width: 100%;
         }
 
         h1,
         h2 {
-            color: #d9534f;
-            /* A reddish color for headings */
-            text-align: center;
+            color: var(--primary-color);
         }
 
         .header {
             text-align: center;
-            margin-bottom: 2em;
+            margin-bottom: 2rem;
         }
 
+        .header h1 {
+            font-size: 2.5rem;
+        }
+
+        /* HERO */
         .hero-container {
-            position: relative; /* Establishes a positioning context for the overlay */
+            position: relative;
             width: 100%;
-            height: 300px;
-            border-radius: 8px;
-            margin-bottom: 2em;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            overflow: hidden; /* Ensures the image and overlay stay within the rounded corners */
+            height: 320px;
+            overflow: hidden;
+            border-radius: var(--radius);
+            margin-bottom: 3rem;
+            box-shadow: var(--shadow);
         }
 
         .hero-container img {
-            width: 100%;
             height: 100%;
             object-fit: cover;
         }
 
         .hero-overlay {
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black overlay */
+            inset: 0;
+            background: rgba(0, 0, 0, 0.55);
             display: flex;
-            justify-content: center;
             align-items: center;
-            color: white;
-            text-align: center;
+            justify-content: center;
         }
 
         .slogan {
-            font-size: 2.5em;
-            font-weight: 400;
-            font-style: italic; 
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
             color: burlywood;
+            font-size: 2.5rem;
+            font-style: italic;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
         }
 
+        /* MENU SECTION */
         .menu-section {
-            margin-bottom: 3em;
-            margin-top: 4rem;
+            margin-bottom: 4rem;
         }
 
-        .menu-section h2{
-            text-align: left;
-            margin-left: 1rem;
+        .menu-title {
+            margin-bottom: 1.5rem;
+            padding-left: 1rem;
+            font-size: 1.8rem;
         }
 
         .menu-items-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2em;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
         }
 
+        /* CARD */
         .menu-item {
-            display: flex;
-            flex-direction: column;
-            /* Stack image and text vertically */
-            align-items: center;
-            /* Center items horizontally */
-            width: 200px;
-            /* Fixed width for each card */
-            background-color: #fff;
-            padding: 1em;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            text-align: center;
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
         }
 
         .menu-item img {
-            width: 100%;
-            /* Image takes full width of the card */
-            height: 150px;
-            /* Fixed height for images */
+            height: 170px;
             object-fit: cover;
-            border-radius: 8px;
-            margin-bottom: 1em;
-            /* Space between image and text */
         }
 
         .item-details {
-            display: flex;
-            flex-direction: column;
+            padding: 1rem;
+            text-align: center;
         }
 
         .item-name {
+            display: block;
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .item-price {
+            color: var(--primary-color);
             font-weight: bold;
         }
 
+        /* FOOTER */
         .footer {
-            margin-top: 3em;
             text-align: center;
+            margin-top: 5rem;
             font-style: italic;
+            line-height: 1.8;
         }
 
-        /* Responsive adjustments for smaller devices */
-         @media (max-width: 680px) {
+        /* MOBILE */
+        @media (max-width: 768px) {
             body {
-                margin: 1em;
+                padding: 1rem;
             }
 
-            .menu-items-grid {
-                gap: 1em;
+            .hero-container {
+                height: 250px;
             }
 
-             .menu-item {
-                width: 75%;
-             }
-        } 
+            .slogan {
+                font-size: 1.7rem;
+                text-align: center;
+                padding: 0 1rem;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
     </style>
 </head>
 
 <body>
 
-    <div class="header">
+    <!-- HEADER -->
+    <header class="header">
         <h1>PENLINEKITCHEN MENU</h1>
-    </div>
+    </header>
 
-  <!-- Hero Image -->
-    <div class="hero-container">
-        <img src="imgs/img2 (3).jpeg" alt="A delicious bowl of Nigerian Jollof Rice">
+    <!-- HERO -->
+    <section class="hero-container">
+        <img src="imgs/img2 (3).jpeg" alt="Penline Kitchen Hero Image" />
+
         <div class="hero-overlay">
             <h2 class="slogan">Taste the Tradition...</h2>
         </div>
-    </div>
+    </section>
 
-    <div class="menu-section">
-        <h2>BREAKFAST</h2>
-        <div class="menu-items-grid">
-            <div class="menu-item">
-                <img src="imgs/img (4).jpg" alt="Oath">
-                <div class="item-details">
-                    <span class="item-name">Oath</span>
-                    <span>₦1,000</span>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="imgs/img (3).jpg" alt="Custard">
-                <div class="item-details">
-                    <span class="item-name">Custard</span>
-                    <span>₦1,000</span>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="imgs/img (1).jpg" alt="Bread/egg">
-                <div class="item-details">
-                    <span class="item-name">Bread/egg</span>
-                    <span>₦1,100</span>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="imgs/img (4).webp" alt="Okra">
-                <div class="item-details">
-                    <span class="item-name">Okra</span>
-                    <span>₦1,000</span>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="imgs/img (1).webp" alt="Egusi">
-                <div class="item-details">
-                    <span class="item-name">Egusi</span>
-                    <span>₦1,000</span>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="imgs/img (5).webp" alt="Vegetable">
-                <div class="item-details">
-                    <span class="item-name">Vegetable</span>
-                    <span>₦1,200</span>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="imgs/img (2).jpg" alt="Atama">
-                <div class="item-details">
-                    <span class="item-name">Atama</span>
-                    <span>₦1,200</span>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="imgs/img (2).webp" alt="Afang">
-                <div class="item-details">
-                    <span class="item-name">Afang</span>
-                    <span>₦1,200</span>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="imgs/img (3).webp" alt="Ogbono">
-                <div class="item-details">
-                    <span class="item-name">Ogbono</span>
-                    <span>₦1,500</span>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="imgs/img (1).jpeg" alt="Native">
-                <div class="item-details">
-                    <span class="item-name">Native</span>
-                    <span>₦1,500</span>
-                </div>
-            </div>
-        </div>
-    </div>
+    <!-- MENU -->
+    <main id="menu-container"></main>
 
-    <div class="menu-section">
-        <h2>PROTEIN</h2>
-        <div class="menu-items-grid">
-            <div class="menu-item">
-                <img src="imgs/img3 (6).jpeg" alt="Fish">
-                <div class="item-details">
-                    <span class="item-name">Fish</span>
-                    <span>₦1,000</span>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="imgs/img3 (1).jpeg" alt="Pepper meat">
-                <div class="item-details">
-                    <span class="item-name">Pepper meat</span>
-                    <span>₦1,000</span>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="imgs/img3 (2).jpeg" alt="Push meat">
-                <div class="item-details">
-                    <span class="item-name">Push meat</span>
-                    <span>₦2,500</span>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="imgs/img3 (3).jpeg" alt="Snail">
-                <div class="item-details">
-                    <span class="item-name">Snail</span>
-                    <span>₦,3000</span>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="imgs/img3 (4).jpeg" alt="Goat meat">
-                <div class="item-details">
-                    <span class="item-name">Goat meat</span>
-                    <span>₦1,000</span>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="imgs/img3 (5).jpeg" alt="Chicken">
-                <div class="item-details">
-                    <span class="item-name">Chicken</span>
-                    <span>₦1,000</span>
-                </div>
-            </div>
-        </div>
-    </div>
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>No. 2B Mini-Ezekwu Street, Port Harcourt, River State, Nigeria.</p>
 
-    <div class="menu-section">
-        <h2>FOOD PREPARED BASE ON ORDER</h2>
-        <div class="menu-items-grid">
-            <div class="menu-item">
-                <img src="imgs/img4 (3).webp" alt="Coconut Rice">
-                <div class="item-details">
-                    <span class="item-name">Coconut Rice</span>
-                    <span>₦3,000</span>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="imgs/img4 (1).jpeg" alt="Fried Rice">
-                <div class="item-details">
-                    <span class="item-name">Fried Rice</span>
-                    <span>₦3,000</span>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="imgs/img4 (1).webp" alt="White Rice">
-                <div class="item-details">
-                    <span class="item-name">White Rice</span>
-                    <span>₦2,000</span>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="imgs/img4 (2).jpeg" alt="Spaghetti">
-                <div class="item-details">
-                    <span class="item-name">Spaghetti</span>
-                    <span>₦3,000</span>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="imgs/img4 (3).jpeg" alt="Chinese Rice">
-                <div class="item-details">
-                    <span class="item-name">Chinese Rice</span>
-                    <span>₦4,000</span>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="imgs/img4 (4).jpeg" alt="Chips">
-                <div class="item-details">
-                    <span class="item-name">Chips</span>
-                    <span>₦2,000</span>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="imgs/img4 (2).webp" alt="Plantain porridge">
-                <div class="item-details">
-                    <span class="item-name">Plantain porridge</span>
-                    <span>₦2,000</span>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="imgs/img4 (2).jpg" alt="Fried plantain/egg">
-                <div class="item-details">
-                    <span class="item-name">Fried plantain/egg</span>
-                    <span>₦2,500</span>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="imgs/img4 (1).jpg" alt="Porridge yam">
-                <div class="item-details">
-                    <span class="item-name">Porridge yam</span>
-                    <span>₦2,000</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="menu-section">
-        <h2>SWALLOW</h2>
-        <div class="menu-items-grid">
-            <div class="menu-item">
-                <img src="imgs/img5 (1).jpg" alt="Garri">
-                <div class="item-details">
-                    <span class="item-name">Garri</span>
-                    <span>₦300</span>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="imgs/img5 (1).webp" alt="Semo">
-                <div class="item-details">
-                    <span class="item-name">Semo</span>
-                    <span>₦700</span>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="imgs/img5 (3).webp" alt="Yam poundo">
-                <div class="item-details">
-                    <span class="item-name">Yam poundo</span>
-                    <span>₦1,500</span>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="imgs/img5 (2).webp" alt="Plantain poundo">
-                <div class="item-details">
-                    <span class="item-name">Plantain poundo</span>
-                    <span>₦1,500</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="menu-section">
-        <h2>SPECIAL SOUPS WITHOUT MAGGI</h2>
-        <div class="menu-items-grid">
-            <div class="menu-item">
-                <img src="imgs/img6.jpg" alt="Vegetable">
-                <div class="item-details">
-                    <span class="item-name">Vegetable</span>
-                    <span>₦3,000</span>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="imgs/img6.webp" alt="Banga">
-                <div class="item-details">
-                    <span class="item-name">Banga</span>
-                    <span>₦3,000</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="menu-section">
-        <h2>SUNDAY SERVICE</h2>
-        <div class="menu-items-grid">
-            <div class="menu-item">
-                <img src="imgs/img7.jpg" alt="Smoke Jollof Rice">
-                <div class="item-details">
-                    <span class="item-name">Smoke Jollof Rice</span>
-                    <span>₦1,000</span>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="imgs/img7.webp" alt="Moi-moi">
-                <div class="item-details">
-                    <span class="item-name">Moi-moi</span>
-                    <span>₦500</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="menu-section">
-        <h2>BEER</h2>
-        <div class="menu-items-grid">
-            <div class="menu-item">
-                <img src="imgs/img8 (1).webp" alt="Life">
-                <div class="item-details">
-                    <span class="item-name">Life</span>
-                    <span>₦1,400</span>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="imgs/img8 (7).webp" alt="Flying fish">
-                <div class="item-details">
-                    <span class="item-name">Flying fish</span>
-                    <span>₦1,200</span>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="imgs/img8 (2).webp" alt="Desperado">
-                <div class="item-details">
-                    <span class="item-name">Desperado</span>
-                    <span>₦1,700</span>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="imgs/img8.jpg" alt="Legend">
-                <div class="item-details">
-                    <span class="item-name">Legend</span>
-                    <span>₦2,000</span>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="imgs/img8 (3).webp" alt="Heineken">
-                <div class="item-details">
-                    <span class="item-name">Heineken</span>
-                    <span>₦2,000</span>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="imgs/img8 (4).webp" alt="Hero">
-                <div class="item-details">
-                    <span class="item-name">Hero</span>
-                    <span>₦1,400</span>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="imgs/img8 (5).webp" alt="Table water">
-                <div class="item-details">
-                    <span class="item-name">Table water</span>
-                    <span>₦300</span>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="imgs/img8 (6).webp" alt="Coke">
-                <div class="item-details">
-                    <span class="item-name">Coke</span>
-                    <span>₦500</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="menu-section">
-        <h2>WINE</h2>
-        <div class="menu-items-grid">
-            <div class="menu-item">
-                <img src="imgs/img9 (2).webp" alt="4th Street">
-                <div class="item-details">
-                    <span class="item-name">4th Street</span>
-                    <span>₦6,000</span>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="imgs/img9 (1).webp" alt="Marco Rosso">
-                <div class="item-details">
-                    <span class="item-name">Marco Rosso</span>
-                    <span>₦5,500</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="footer">
-        <p>No. 2B Mini-Ezekwu Street, Port Harcourt, River State,  Nigeria.</p>
-        <p>&copy; <span id="year"></span> penlinekitchen. All rights reserved.</p>
-    </div>
+        <p>
+            &copy;
+            <span id="year"></span>
+            Penlinekitchen. All rights reserved.
+        </p>
+    </footer>
 
     <script>
-        document.getElementById("year").textContent = new Date().getFullYear();
+
+        // =========================
+        // MENU DATA
+        // =========================
+
+        const menuData = [
+
+            {
+                title: "BREAKFAST",
+                items: [
+                    { name: "Oath", price: "₦1,000", image: "imgs/img (4).jpg" },
+                    { name: "Custard", price: "₦1,000", image: "imgs/img (3).jpg" },
+                    { name: "Bread/egg", price: "₦1,100", image: "imgs/img (1).jpg" },
+                    { name: "Okra", price: "₦1,000", image: "imgs/img (4).webp" },
+                    { name: "Egusi", price: "₦1,000", image: "imgs/img (1).webp" },
+                    { name: "Vegetable", price: "₦1,200", image: "imgs/img (5).webp" },
+                    { name: "Atama", price: "₦1,200", image: "imgs/img (2).jpg" },
+                    { name: "Afang", price: "₦1,200", image: "imgs/img (2).webp" },
+                    { name: "Ogbono", price: "₦1,500", image: "imgs/img (3).webp" },
+                    { name: "Native", price: "₦1,500", image: "imgs/img (1).jpeg" }
+                ]
+            },
+
+            {
+                title: "PROTEIN",
+                items: [
+                    { name: "Fish", price: "₦1,000", image: "imgs/img3 (6).jpeg" },
+                    { name: "Pepper meat", price: "₦1,000", image: "imgs/img3 (1).jpeg" },
+                    { name: "Push meat", price: "₦2,500", image: "imgs/img3 (2).jpeg" },
+                    { name: "Snail", price: "₦3,000", image: "imgs/img3 (3).jpeg" },
+                    { name: "Goat meat", price: "₦1,000", image: "imgs/img3 (4).jpeg" },
+                    { name: "Chicken", price: "₦1,000", image: "imgs/img3 (5).jpeg" }
+                ]
+            },
+
+            {
+                title: "FOOD PREPARED BASE ON ORDER",
+                items: [
+                    { name: "Coconut Rice", price: "₦3,000", image: "imgs/img4 (3).webp" },
+                    { name: "Fried Rice", price: "₦3,000", image: "imgs/img4 (1).jpeg" },
+                    { name: "White Rice", price: "₦2,000", image: "imgs/img4 (1).webp" },
+                    { name: "Spaghetti", price: "₦3,000", image: "imgs/img4 (2).jpeg" },
+                    { name: "Chinese Rice", price: "₦4,000", image: "imgs/img4 (3).jpeg" },
+                    { name: "Chips", price: "₦2,000", image: "imgs/img4 (4).jpeg" },
+                    { name: "Plantain porridge", price: "₦2,000", image: "imgs/img4 (2).webp" },
+                    { name: "Fried plantain/egg", price: "₦2,500", image: "imgs/img4 (2).jpg" },
+                    { name: "Porridge yam", price: "₦2,000", image: "imgs/img4 (1).jpg" }
+                ]
+            },
+
+            {
+                title: "SWALLOW",
+                items: [
+                    { name: "Garri", price: "₦300", image: "imgs/img5 (1).jpg" },
+                    { name: "Semo", price: "₦700", image: "imgs/img5 (1).webp" },
+                    { name: "Yam poundo", price: "₦1,500", image: "imgs/img5 (3).webp" },
+                    { name: "Plantain poundo", price: "₦1,500", image: "imgs/img5 (2).webp" }
+                ]
+            },
+
+            {
+                title: "SPECIAL SOUPS WITHOUT MAGGI",
+                items: [
+                    { name: "Vegetable", price: "₦3,000", image: "imgs/img6.jpg" },
+                    { name: "Banga", price: "₦3,000", image: "imgs/img6.webp" }
+                ]
+            },
+
+            {
+                title: "SUNDAY SERVICE",
+                items: [
+                    { name: "Smoke Jollof Rice", price: "₦1,000", image: "imgs/img7.jpg" },
+                    { name: "Moi-moi", price: "₦500", image: "imgs/img7.webp" }
+                ]
+            },
+
+            {
+                title: "BEER",
+                items: [
+                    { name: "Life", price: "₦1,400", image: "imgs/img8 (1).webp" },
+                    { name: "Flying fish", price: "₦1,200", image: "imgs/img8 (7).webp" },
+                    { name: "Desperado", price: "₦1,700", image: "imgs/img8 (2).webp" },
+                    { name: "Legend", price: "₦2,000", image: "imgs/img8.jpg" },
+                    { name: "Heineken", price: "₦2,000", image: "imgs/img8 (3).webp" },
+                    { name: "Hero", price: "₦1,400", image: "imgs/img8 (4).webp" },
+                    { name: "Table water", price: "₦300", image: "imgs/img8 (5).webp" },
+                    { name: "Coke", price: "₦500", image: "imgs/img8 (6).webp" }
+                ]
+            },
+
+            {
+                title: "WINE",
+                items: [
+                    { name: "4th Street", price: "₦6,000", image: "imgs/img9 (2).webp" },
+                    { name: "Marco Rosso", price: "₦5,500", image: "imgs/img9 (1).webp" }
+                ]
+            }
+
+        ];
+
+        // =========================
+        // RENDER FUNCTION
+        // =========================
+
+        const menuContainer = document.getElementById("menu-container");
+
+        function createMenuItem(item) {
+            return `
+                <div class="menu-item">
+                    <img src="${item.image}" alt="${item.name}" />
+
+                    <div class="item-details">
+                        <span class="item-name">${item.name}</span>
+
+                        <span class="item-price">${item.price}</span>
+                    </div>
+                </div>
+            `;
+        }
+
+        function createMenuSection(section) {
+            return `
+                <section class="menu-section">
+
+                    <h2 class="menu-title">
+                        ${section.title}
+                    </h2>
+
+                    <div class="menu-items-grid">
+                        ${section.items.map(createMenuItem).join("")}
+                    </div>
+
+                </section>
+            `;
+        }
+
+        function renderMenu() {
+            menuContainer.innerHTML =
+                menuData.map(createMenuSection).join("");
+        }
+
+        // =========================
+        // INIT
+        // =========================
+
+        renderMenu();
+
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+
     </script>
+
 </body>
 
 </html>
